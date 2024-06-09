@@ -1,6 +1,5 @@
-
 class Report {
-  String id;
+  int id;
   DateTime creationDate;
   int classroomId;
   int computerId;

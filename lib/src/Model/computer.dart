@@ -1,5 +1,5 @@
 class Computer {
-  int id;
+  String id;
   String computerName;
   int classroomId;
 

@@ -12,7 +12,7 @@ class Classroom {
   factory Classroom.fromMap(Map<String, dynamic> data, String documentId) {
     return Classroom(
       id: documentId,
-      classroomNumber: data['classroomNumber'] ?? 0,
+      classroomNumber: data['classroomNumber'] ?? "0000",
       floor: data['floor'] ?? 0,
     );
   }

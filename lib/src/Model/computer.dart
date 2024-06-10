@@ -12,8 +12,8 @@ class Computer {
   factory Computer.fromMap(Map<String, dynamic> data, String documentId) {
     return Computer(
       id: documentId,
-      computerName: data['computerName'] ?? 0,
-      classroomId: data['classroomId'] ?? 0,
+      computerName: data['computerName'] ?? "00-00-00",
+      classroomId: data['classroomId'] ?? "0000",
     );
   }
 

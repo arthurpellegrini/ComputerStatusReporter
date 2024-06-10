@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:computer_status_reporter/firebase_options.dart';
+
 import 'package:computer_status_reporter/src/api/classroomRequests.dart';
+import 'package:computer_status_reporter/src/api/computerRequests.dart';
 
 import 'classroom.dart';
 import 'computer.dart';
@@ -12,11 +14,15 @@ class DataController {
 
   final FirebaseFirestore firestore;
   late final ClassroomRequests classroomRequests;
+  late final ComputerRequests computerRequests;
+
   Map<int,  List<Classroom>> cacheClassroom = {};
+  Map<String,  List<Computer>> cacheComputer = {};
 
 
   DataController({required this.firestore}) {
     classroomRequests = ClassroomRequests(firestore: firestore);
+    computerRequests = ComputerRequests(firestore: firestore);
   }
 
     // Fonction pour retourner une liste d'objets Classroom
@@ -43,8 +49,32 @@ class DataController {
     return cacheClassroom[floor];
   }
 
+      // Fonction pour retourner une liste d'objets Computer
+  Future<void> createComputersList() async {
 
+      List<Computer> computers = await computerRequests.getComputers();
 
+    cacheComputer.clear();
+    for (var computer in computers) {
+      if (!cacheComputer.containsKey(computer.classroomId)) {
+        cacheComputer[computer.classroomId] = [];
+      }
+      cacheComputer[computer.classroomId]!.add(computer);
+    } 
+        
+  }
+
+  Map<String,  List<Computer>> getComputers(){
+    return cacheComputer;
+  }
+
+  //ici on pourrait mettre en parametre un objet Classroom en entier en fonction de comment on veut le gerer dans la view
+  //List<Computer>? getComputersByClassroom(Classroom classroom)
+  List<Computer>? getComputersByClassroom(String classroomId)
+  {
+    //return cacheComputer[classroom.id];
+    return cacheComputer[classroomId];
+  }
 
   /* A PARTIR D'ICI CE SONT DES FONCTIONS TEMPORAIRES UNIQUEMENT POUR LES TESTS */
 
@@ -54,15 +84,9 @@ class DataController {
   }
 
   // Fonction pour créer un objet Computer
-  Computer createComputer(String id, String computerName, int classroomId) {
+  Computer createComputer(String id, String computerName, String classroomId) {
     return Computer(id: id, computerName: computerName, classroomId: classroomId);
   }
-
-  // Fonction pour retourner une liste d'objets Computer
-  List<Computer> createComputersList(int count) {
-    return List.generate(count, (index) => Computer(id: "index", computerName: 'Computer $index', classroomId: 100 + index));
-  }
-
 }
 
 Future<void> main() async {
@@ -78,4 +102,11 @@ Future<void> main() async {
 
   print(classrooms.toString());
   
+
+  
+  await dataController.createComputersList();
+  // Exemple de création d'une liste d'objets Computer
+  Map<String, dynamic> computers = dataController.getComputers();
+
+  print(computers.toString());
 }

@@ -12,19 +12,45 @@ class DataController {
 
   final FirebaseFirestore firestore;
   late final ClassroomRequests classroomRequests;
+  Map<int,  List<Classroom>> cacheClassroom = {};
+
 
   DataController({required this.firestore}) {
     classroomRequests = ClassroomRequests(firestore: firestore);
   }
 
+    // Fonction pour retourner une liste d'objets Classroom
+  Future<void> createClassroomsList() async {
+
+      List<Classroom> classrooms = await classroomRequests.getClassrooms();
+
+    cacheClassroom.clear();
+    for (var classroom in classrooms) {
+      if (!cacheClassroom.containsKey(classroom.floor)) {
+        cacheClassroom[classroom.floor] = [];
+      }
+      cacheClassroom[classroom.floor]!.add(classroom);
+    } 
+        
+  }
+
+  Map<int,  List<Classroom>> getClassrooms(){
+    return cacheClassroom;
+  }
+
+  List<Classroom>? getClassroomsByFloor(int floor)
+  {
+    return cacheClassroom[floor];
+  }
+
+
+
+
+  /* A PARTIR D'ICI CE SONT DES FONCTIONS TEMPORAIRES UNIQUEMENT POUR LES TESTS */
+
   // Fonction pour créer un objet Classroom
   Classroom createClassroom(String id, int classroomNumber, int floor) {
     return Classroom(id: id, classroomNumber: classroomNumber, floor: floor);
-  }
-
-  // Fonction pour retourner une liste d'objets Classroom
-  Future<List<Classroom>> createClassroomsList() async {
-    return classroomRequests.getClassrooms();
   }
 
   // Fonction pour créer un objet Computer
@@ -41,16 +67,15 @@ class DataController {
 
 Future<void> main() async {
 
-  
   //start the firebase link
   await Firebase.initializeApp( options: DefaultFirebaseOptions.currentPlatform);
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   DataController dataController = DataController(firestore: firestore);
   //end link and start app under
-
+  await dataController.createClassroomsList();
   // Exemple de création d'une liste d'objets Classroom
-  List<Classroom> classrooms = await dataController.createClassroomsList();
+  Map<int, dynamic> classrooms = dataController.getClassrooms();
 
-  classrooms.forEach(print);
+  print(classrooms.toString());
   
 }

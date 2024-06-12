@@ -1,28 +1,25 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:computer_status_reporter/firebase_options.dart';
 import 'package:computer_status_reporter/src/missing_form/select_post_view.dart';
+import 'package:computer_status_reporter/src/model/dataController.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import '../model/classroom.dart';
+import 'package:computer_status_reporter/src/model/classroom.dart';
+
 
 class SelectRoomView extends StatefulWidget {
+
+  
+  final DataController dataController;
+
+  const SelectRoomView({super.key, required this.dataController});
+  
   @override
   _SelectRoomViewState createState() => _SelectRoomViewState();
 }
 
 class _SelectRoomViewState extends State<SelectRoomView> {
-  Map<int, List<Classroom>> classroomsByFloor = {
-    3: [
-      Classroom(id: 'sdnfjsdf', classroomNumber: 8, floor: 3),
-      Classroom(id: 'bnmbnm', classroomNumber: 30, floor: 3),
-      Classroom(id: 'lkjlkj', classroomNumber: 35, floor: 3),
-    ],
-    2: [
-      Classroom(id: 'azsdaze', classroomNumber: 12, floor: 2),
-      Classroom(id: 'xcvxcv', classroomNumber: 25, floor: 2),
-    ],
-    1: [
-      Classroom(id: 'qweqwe', classroomNumber: 15, floor: 1),
-      Classroom(id: 'yuiyui', classroomNumber: 20, floor: 1),
-    ],
-  };
+  Map<int, List<Classroom>> classroomsByFloor = {};
 
   // Initial state for expansion panels
   Map<int, bool> _isExpanded = {};
@@ -30,9 +27,18 @@ class _SelectRoomViewState extends State<SelectRoomView> {
   @override
   void initState() {
     super.initState();
-    // Initialize the expansion state for each floor
-    classroomsByFloor.keys.forEach((key) {
-      _isExpanded[key] = false;
+    createData();
+  }
+
+  void createData() async {
+    await widget.dataController.createClassroomsList();
+    await widget.dataController.createComputersList();
+
+    setState(() {
+      classroomsByFloor = widget.dataController.getClassrooms();
+      classroomsByFloor.keys.forEach((key) {
+        _isExpanded[key] = false;
+      });
     });
   }
 
@@ -41,7 +47,7 @@ class _SelectRoomViewState extends State<SelectRoomView> {
       context,
       MaterialPageRoute(
         builder: (context) =>
-            SelectPostView(selectedClassroom: selectedClassroom),
+            SelectPostView(dataController: widget.dataController, selectedClassroom: selectedClassroom),
       ),
     );
   }

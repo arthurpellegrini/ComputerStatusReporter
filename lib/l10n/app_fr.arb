@@ -1,0 +1,22 @@
+{ 
+  "appTitle": "Rapporteur d'état des ordinateurs", 
+  "@appTitle": { 
+    "description": "Le titre de l'application" 
+  }, 
+  "appSettings": "Paramètres", 
+  "@appSettings": { 
+    "description": "L'étiquette des paramètres" 
+  }, 
+  "appSettingsDarkMode": "Mode sombre", 
+  "@appSettingsDarkMode": { 
+    "description": "Le paramètre du mode sombre" 
+  }, 
+  "appSettingsLanguage": "Langue", 
+  "@appSettingsLanguage": { 
+    "description": "Le paramètre de langue" 
+  },
+  "appCopyRights": "A-C-T @ESIEE-IT - 2024", 
+  "@appCopyRights": { 
+    "description": "Arthur - Clément - Tristan" 
+  } 
+}

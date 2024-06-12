@@ -1,0 +1,22 @@
+{
+  "appTitle": "Computers Status Reporter",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "appSettings": "Settings",
+  "@appSettings": {
+    "description": "The settings label"
+  },
+  "appSettingsDarkMode": "Dark Mode",
+  "@appSettingsDarkMode": {
+    "description": "The dark mode setting"
+  },
+  "appSettingsLanguage": "Language",
+  "@appSettingsLanguage": {
+    "description": "The language setting"
+  },
+  "appCopyRights": "A-C-T @ESIEE-IT - 2024", 
+  "@appCopyRights": { 
+    "description": "Arthur - Clément - Tristan" 
+  } 
+}

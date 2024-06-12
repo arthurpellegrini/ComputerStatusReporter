@@ -11,7 +11,7 @@ class HomeView extends StatelessWidget {
       context,
       AppLocalizations.of(context)!.reportSuccess,
       Icons.check_circle,
-      Colors.greenAccent,
+      Colors.green,
     );
   }
 
@@ -20,7 +20,7 @@ class HomeView extends StatelessWidget {
       context,
       AppLocalizations.of(context)!.reportTransmissionFailed,
       Icons.error,
-      Colors.redAccent,
+      Colors.red,
     );
   }
 
@@ -43,6 +43,7 @@ class HomeView extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                const Spacer(),
                 Text(
                   AppLocalizations.of(context)!.appTitle,
                   style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -59,7 +60,7 @@ class HomeView extends StatelessWidget {
                         },
                         icon: Icons.report,
                         label: AppLocalizations.of(context)!.report,
-                        backgroundColor: Colors.blueAccent,
+                        backgroundColor: Colors.blue,
                       ),
                       const SizedBox(height: 20),
                       CustomButton(
@@ -68,7 +69,7 @@ class HomeView extends StatelessWidget {
                         },
                         icon: Icons.visibility,
                         label: AppLocalizations.of(context)!.view,
-                        backgroundColor: Colors.tealAccent,
+                        backgroundColor: Colors.teal,
                       ),
                       const SizedBox(height: 20),
                       CustomButton(
@@ -77,18 +78,17 @@ class HomeView extends StatelessWidget {
                         },
                         icon: Icons.qr_code_scanner,
                         label: AppLocalizations.of(context)!.scanQR,
-                        backgroundColor: Colors.purpleAccent,
+                        backgroundColor: Colors.purple,
                       ),
                       const SizedBox(height: 20),
-                      const Text("TODO: Remove Test Toasts Button", style: TextStyle(fontSize: 16)),
                       CustomButton(
                         onPressed: () {
                           _showSuccessToast(context);
                           _showErrorToast(context);
                         },
                         icon: Icons.bug_report,
-                        label: AppLocalizations.of(context)!.reportBug,
-                        backgroundColor: Colors.greenAccent,
+                        label: "TODO: Remove Test Toasts Button",
+                        backgroundColor: Colors.green,
                       ),
                     ],
                   ),

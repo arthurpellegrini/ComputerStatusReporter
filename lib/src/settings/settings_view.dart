@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:country_flags/country_flags.dart';
 import 'settings_controller.dart';
+import '../app_languages.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key, required this.controller});
@@ -14,8 +16,8 @@ class SettingsView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Settings'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
+      body: SizedBox(
+        width: double.infinity,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -37,7 +39,6 @@ class SettingsView extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 20),
             DropdownButton<Locale>(
               value: controller.currentLocale,
               onChanged: (Locale? newLocale) {
@@ -45,16 +46,22 @@ class SettingsView extends StatelessWidget {
                   controller.updateLocale(newLocale);
                 }
               },
-              items: const [
-                DropdownMenuItem(
-                  value: Locale('en'),
-                  child: Text('English'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('fr'),
-                  child: Text('French'),
-                ),
-              ],
+              items: AppLanguages.languages.map((AppLanguage language) {
+                return DropdownMenuItem<Locale>(
+                  value: language.locale,
+                  child: Row(
+                    children: [
+                      CountryFlag.fromLanguageCode(
+                        language.countryCode,
+                        height: 20,
+                        width: 30,
+                      ),
+                      const SizedBox(width: 8),
+                      Text(language.name),
+                    ],
+                  ),
+                );
+              }).toList(),
             ),
           ],
         ),

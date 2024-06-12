@@ -17,8 +17,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   http: ^1.2.1
-  easy_localization: ^3.0.0
-  get: ^4.6.6
+  country_flags: ^2.0.1
 
 dev_dependencies:
   flutter_test:

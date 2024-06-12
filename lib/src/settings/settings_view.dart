@@ -1,48 +1,99 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:country_flags/country_flags.dart';
 import 'settings_controller.dart';
+import '../app_languages.dart';
 
-/// Displays the various settings that can be customized by the user.
-///
-/// When a user changes a setting, the SettingsController is updated and
-/// Widgets that listen to the SettingsController are rebuilt.
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key, required this.controller});
 
   static const routeName = '/settings';
-
   final SettingsController controller;
+
+  final TextStyle textStyle = const TextStyle(fontSize: 16);
+  final SizedBox separationSizedBox = const SizedBox(height: 10);
+
+  Widget darkModeSwitch(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(AppLocalizations.of(context)!.darkMode,
+            style: textStyle),
+        separationSizedBox,
+        Switch(
+          value: controller.themeMode == ThemeMode.dark ||
+              (controller.themeMode == ThemeMode.system &&
+                  MediaQuery.of(context).platformBrightness == Brightness.dark),
+          onChanged: (bool value) {
+            controller.updateThemeMode(
+              value ? ThemeMode.dark : ThemeMode.light,
+            );
+          },
+        ),
+      ],
+    );
+  }
+
+  Widget languageSelection(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(AppLocalizations.of(context)!.language,
+            style: textStyle),
+        separationSizedBox,
+        DropdownButton<Locale>(
+          key: ValueKey(AppLanguages.languages.length),
+          underline: Container(),
+          borderRadius: BorderRadius.circular(8),
+          padding: const EdgeInsets.symmetric(horizontal: 12),
+          value: controller.currentLocale,
+          onChanged: (Locale? newLocale) {
+            if (newLocale != null) {
+              controller.updateLocale(newLocale);
+            }
+          },
+          items: AppLanguages.languages.map((AppLanguage language) {
+            return DropdownMenuItem<Locale>(
+              value: language.locale,
+              child: Row(
+                children: [
+                  CountryFlag.fromLanguageCode(
+                    language.countryCode,
+                    height: 20,
+                    width: 30,
+                  ),
+                  separationSizedBox,
+                  Text(language.name, style: textStyle),
+                ],
+              ),
+            );
+          }).toList(),
+        ),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title:
+            Text(AppLocalizations.of(context)!.settings, style: textStyle),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        // Glue the SettingsController to the theme selection DropdownButton.
-        //
-        // When a user selects a theme from the dropdown list, the
-        // SettingsController is updated, which rebuilds the MaterialApp.
-        child: DropdownButton<ThemeMode>(
-          // Read the selected themeMode from the controller
-          value: controller.themeMode,
-          // Call the updateThemeMode method any time the user selects a theme.
-          onChanged: controller.updateThemeMode,
-          items: const [
-            DropdownMenuItem(
-              value: ThemeMode.system,
-              child: Text('System Theme'),
+      body: SizedBox(
+        width: double.infinity,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            darkModeSwitch(context),
+            separationSizedBox,
+            languageSelection(context),
+            const Spacer(),
+            Text(
+              AppLocalizations.of(context)!.appCopyRights,
+              style: textStyle,
             ),
-            DropdownMenuItem(
-              value: ThemeMode.light,
-              child: Text('Light Theme'),
-            ),
-            DropdownMenuItem(
-              value: ThemeMode.dark,
-              child: Text('Dark Theme'),
-            )
+            separationSizedBox,
           ],
         ),
       ),

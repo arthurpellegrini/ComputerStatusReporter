@@ -1,0 +1,47 @@
+{ 
+  "@@locale": "fr",
+  "appTitle": "Rapporteur d'état des ordinateurs", 
+  "@appTitle": { 
+    "description": "Le titre de l'application" 
+  }, 
+  "appCopyRights": "A-C-T @ESIEE-IT - 2024", 
+  "@appCopyRights": { 
+    "description": "Arthur - Clément - Tristan" 
+  },
+  "settings": "Paramètres", 
+  "@settings": { 
+    "description": "L'étiquette des paramètres" 
+  }, 
+  "darkMode": "Mode sombre", 
+  "@settingsDarkMode": { 
+    "description": "Le paramètre du mode sombre" 
+  }, 
+  "language": "Langue", 
+  "@language": { 
+    "description": "Le paramètre de langue" 
+  },
+  "report": "Rapport",
+  "@report": {
+    "description": "L'étiquette du bouton de rapport"
+  },
+  "view": "Voir",
+  "@view": {
+    "description": "L'étiquette du bouton de vue"
+  },
+  "scanQR": "Scanner QR",
+  "@scanQR": {
+    "description": "L'étiquette du bouton de scanner QR"
+  },
+  "reportBug": "Signaler un bug",
+  "@reportBug": {
+    "description": "L'étiquette du bouton de signaler un bug"
+  },
+  "reportTransmissionFailed": "Erreur lors de la transmission du rapport",
+  "@reportTransmissionFailed": {
+    "description": "Le message d'erreur lors de la transmission du rapport"
+  },
+  "reportSuccess": "Rapport envoyé avec succès",
+  "@reportSuccess": {
+    "description": "Le message de succès lors de l'envoi du rapport"
+  }
+}

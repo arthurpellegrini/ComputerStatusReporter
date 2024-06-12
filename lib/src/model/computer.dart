@@ -17,6 +17,7 @@ class Computer {
       computerName: data['computerName'] ?? "00-00-00",
       classroomId: data['classroomId'] ?? "0000",
       positions: [data['positionX'], data['positionY'] ],
+
     );
   }
 
@@ -33,7 +34,6 @@ class Computer {
 
   @override
   String toString() {
-    return 'Computer(id: $id, computerName: $computerName, classroomId: $classroomId, $positions)';
+    return 'Computer(id: $id, computerName: $computerName, classroomId: $classroomId, positions: $positions)';
   }
 }
-

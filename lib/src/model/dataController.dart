@@ -121,7 +121,7 @@ class DataController {
 
 }
 
-/*
+
 Future<void> main() async {
 
   //start the firebase link
@@ -129,7 +129,7 @@ Future<void> main() async {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   DataController dataController = DataController(firestore: firestore);
 
-  await dataController.addReportByFields(
+  /*await dataController.addReportByFields(
     Classroom(id: "jeaneude", classroomNumber: 03, floor: 3),
      Computer(id: "deuxiement", computerName: "CH-01-01", classroomId: "jeaneude"),
      'en vrai je sais pas quoi dire',
@@ -139,8 +139,12 @@ Future<void> main() async {
      true,
      true,
      true,
-     true);
+     true);*/
 
-  print(await dataController.getReportList());
+  //print(await dataController.getReportList());
+  
+  await dataController.createComputersList();
+
+  print(dataController.getComputers());
+
 }
-*/

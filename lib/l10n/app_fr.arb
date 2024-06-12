@@ -1,0 +1,6 @@
+{
+  "appTitle": "Journalisation Etat Ordinateurs",
+  "@appTitle": {
+    "description": "Le titre de l'application"
+  }
+}

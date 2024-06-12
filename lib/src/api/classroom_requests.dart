@@ -14,7 +14,7 @@ class ClassroomRequests {
       }).toList();
       return classrooms;
     } catch (e) {
-      print(e);
+      // print(e);
       return [];
     }
   }

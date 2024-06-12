@@ -84,7 +84,7 @@ class HomeView extends StatelessWidget {
                       CustomButton(
                         onPressed: () {
                           _showSuccessToast(context);
-                          // _showErrorToast(context);
+                          _showErrorToast(context);
                         },
                         icon: Icons.bug_report,
                         label: AppLocalizations.of(context)!.reportBug,

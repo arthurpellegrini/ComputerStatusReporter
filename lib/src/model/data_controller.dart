@@ -1,16 +1,14 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:computer_status_reporter/firebase_options.dart';
 
-import 'package:computer_status_reporter/src/api/classroomRequests.dart';
-import 'package:computer_status_reporter/src/api/computerRequests.dart';
-import 'package:computer_status_reporter/src/api/reportRequests.dart';
+import 'package:computer_status_reporter/src/api/classroom_requests.dart';
+import 'package:computer_status_reporter/src/api/computer_requests.dart';
+import 'package:computer_status_reporter/src/api/report_requests.dart';
 
 import 'package:computer_status_reporter/src/model/classroom.dart';
 import 'package:computer_status_reporter/src/model/computer.dart';
 import 'package:computer_status_reporter/src/model/report.dart';
 
-import 'package:firebase_core/firebase_core.dart';
 
 class DataController {
 

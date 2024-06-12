@@ -14,7 +14,7 @@ class ReportRequests {
       }).toList();
       return reports;
     } catch (e) {
-      print(e);
+      // print(e);
       return [];
     }
   }
@@ -26,7 +26,7 @@ class ReportRequests {
       await firestore.collection('Report').add(report.toMap());
       return true;
     } catch (e) {
-      print(e);
+      // print(e);
       return false;
     }
   }

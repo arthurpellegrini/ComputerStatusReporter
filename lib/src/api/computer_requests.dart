@@ -14,7 +14,7 @@ class ComputerRequests {
       }).toList();
       return computers;
     } catch (e) {
-      print(e);
+      // print(e);
       return [];
     }
   }

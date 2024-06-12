@@ -8,7 +8,7 @@ class ComputerRequests {
 
   Future<List<Computer>> getComputers() async {
     try {
-      QuerySnapshot querySnapshot = await firestore.collection('Computer').get();
+      QuerySnapshot querySnapshot = await firestore.collection('Computer').orderBy("computerName", descending: false).get();
       List<Computer> computers = querySnapshot.docs.map((doc) {
         return Computer.fromMap(doc.data() as Map<String, dynamic>, doc.id);
       }).toList();

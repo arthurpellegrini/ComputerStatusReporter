@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../model/classroom.dart';
+import 'package:computer_status_reporter/src/model/classroom.dart';
 
 class ClassroomRequests {
   FirebaseFirestore firestore;

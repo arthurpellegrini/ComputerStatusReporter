@@ -21,28 +21,10 @@ class SettingsView extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // DropdownButton<ThemeMode>(
-            //   value: controller.themeMode,
-            //   onChanged: controller.updateThemeMode,
-            //   items: const [
-            //     DropdownMenuItem(
-            //       value: ThemeMode.system,
-            //       child: Text('System Theme'),
-            //     ),
-            //     DropdownMenuItem(
-            //       value: ThemeMode.light,
-            //       child: Text('Light Theme'),
-            //     ),
-            //     DropdownMenuItem(
-            //       value: ThemeMode.dark,
-            //       child: Text('Dark Theme'),
-            //     ),
-            //   ],
-            // ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('Dark Mode', style: TextStyle(fontSize: 20)),
+                const Text('Dark Mode', style: TextStyle(fontSize: 16)),
                 const SizedBox(width: 8),
                 Switch(
                   value: controller.themeMode == ThemeMode.dark || (controller.themeMode == ThemeMode.system && MediaQuery.of(context).platformBrightness == Brightness.dark),
@@ -57,9 +39,12 @@ class SettingsView extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children:  [
-                const Text('Language', style: TextStyle(fontSize: 20)),
+                const Text('Language', style: TextStyle(fontSize: 16)),
                 const SizedBox(width: 8),
                 DropdownButton<Locale>(
+                  underline: Container(),
+                  borderRadius: BorderRadius.circular(8),
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
                   value: controller.currentLocale,
                   onChanged: (Locale? newLocale) {
                     if (newLocale != null) {
@@ -77,7 +62,7 @@ class SettingsView extends StatelessWidget {
                             width: 30,
                           ),
                           const SizedBox(width: 8),
-                          Text(language.name),
+                          Text(language.name, style: const TextStyle(fontSize: 16)),
                         ],
                       ),
                     );

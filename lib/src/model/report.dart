@@ -5,6 +5,8 @@ class Report {
   Timestamp creationDate;
   String classroomId;
   String computerId;
+  String classroomName;
+  String computerName;
   String reportDescription;
   bool hdmiIsOk;
   bool etherIsOk;
@@ -27,14 +29,18 @@ class Report {
     required this.powerIsOk,
     required this.screenIsOk,
     required this.computerIsOk,
+    required this.classroomName,
+    required this.computerName,
   });
 
-  factory Report.fromMap(Map<String, dynamic> data, String documentId) {
+  factory Report.fromMap(Map<String, dynamic> data, String documentId,) {
     return Report(
       id: documentId,
       creationDate: data['creationDate'] ?? Timestamp.now(),
       classroomId: data['classroomId'] ?? "0000",
       computerId: data['computerId'] ?? "0000",
+      classroomName: data['classroomName'] ?? "0000",
+      computerName: data['computerName'] ?? "0000",
       reportDescription: data['reportDescription'] ?? "no desc",
       hdmiIsOk: data['hdmiIsOk'] ?? false,
       etherIsOk: data['etherIsOk'] ?? false,
@@ -51,6 +57,8 @@ class Report {
       'creationDate': creationDate,
       'classroomId': classroomId,
       'computerId': computerId,
+      'classroomName': classroomName,
+      'computerName': computerName,
       'reportDescription': reportDescription,
       'hdmiIsOk': hdmiIsOk,
       'etherIsOk': etherIsOk,

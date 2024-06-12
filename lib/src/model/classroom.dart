@@ -22,6 +22,9 @@ class Classroom {
     return 'Classroom(id: $id, classroomNumber: $classroomNumber, floor: $floor)';
   }
 
-
+  String getClassroomName() {
+    String zeroOrNot = (classroomNumber<10) ? "0" : "";
+    return '$floor.$zeroOrNot$classroomNumber';
+  }
 }
 

@@ -121,7 +121,7 @@ class DataController {
 
 }
 
-
+/*
 Future<void> main() async {
 
   //start the firebase link
@@ -147,4 +147,4 @@ Future<void> main() async {
 
   print(dataController.getComputers());
 
-}
+}*/

@@ -60,7 +60,7 @@ class HomeView extends StatelessWidget {
                         },
                         icon: Icons.report,
                         label: AppLocalizations.of(context)!.report,
-                        backgroundColor: Colors.blue,
+                        backgroundColor: const Color(0xFF8FCEED),
                       ),
                       const SizedBox(height: 20),
                       CustomButton(
@@ -69,7 +69,7 @@ class HomeView extends StatelessWidget {
                         },
                         icon: Icons.visibility,
                         label: AppLocalizations.of(context)!.view,
-                        backgroundColor: Colors.teal,
+                        backgroundColor: const Color(0xFFA5B2D7),
                       ),
                       const SizedBox(height: 20),
                       CustomButton(
@@ -78,7 +78,7 @@ class HomeView extends StatelessWidget {
                         },
                         icon: Icons.qr_code_scanner,
                         label: AppLocalizations.of(context)!.scanQR,
-                        backgroundColor: Colors.purple,
+                        backgroundColor: const Color(0xFF9F61D1),
                       ),
                       const SizedBox(height: 20),
                       CustomButton(

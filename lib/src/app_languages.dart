@@ -11,7 +11,6 @@ class AppLanguage {
 class AppLanguages {
   static final List<AppLanguage> languages = [
     AppLanguage(const Locale('en'), 'English', 'en'),
-    AppLanguage(const Locale('fr'), 'French', 'fr'),
-    // Ajoutez d'autres langues ici
+    AppLanguage(const Locale('fr'), 'Français', 'fr'),
   ];
 }

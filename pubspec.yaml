@@ -16,8 +16,8 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  http: ^1.2.1
   country_flags: ^2.0.1
+  http: ^1.2.1
 
 dev_dependencies:
   flutter_test:

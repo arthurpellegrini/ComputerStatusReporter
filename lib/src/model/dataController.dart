@@ -125,7 +125,7 @@ class DataController {
 
 
   
-
+/*
 Future<void> main() async {
 
   //start the firebase link
@@ -134,7 +134,7 @@ Future<void> main() async {
   DataController dataController = DataController(firestore: firestore);
 
   //end link and start app under
- /* await dataController.createClassroomsList();
+  await dataController.createClassroomsList();
   // Exemple de création d'une liste d'objets Classroom
   Map<int, dynamic> classrooms = dataController.getClassrooms();
 
@@ -144,7 +144,7 @@ Future<void> main() async {
   // Exemple de création d'une liste d'objets Computer
   Map<String, dynamic> computers = dataController.getComputers();
 
-  print(computers.toString());*/
+  print(computers.toString());
 
   
 
@@ -176,5 +176,5 @@ Future<void> main() async {
      true,
      true);*/
 
-  //print(await dataController.getReportList());
-}
+  print(await dataController.getReportList());
+}*/

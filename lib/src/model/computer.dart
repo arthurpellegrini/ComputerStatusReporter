@@ -16,8 +16,20 @@ class Computer {
       id: documentId,
       computerName: data['computerName'] ?? "00-00-00",
       classroomId: data['classroomId'] ?? "0000",
-      positions: List<int>.from(data['positions'] ?? []),
+      positions: [data['positionX'], data['positionY'] ],
+
     );
+  }
+
+  
+  Map<String, dynamic> toMap() {
+    print(positions);
+    return {
+      'computerName': computerName,
+      'classroomId': classroomId,
+      'positionX': positions[0],
+      'positionY': positions[1],
+    };
   }
 
   @override

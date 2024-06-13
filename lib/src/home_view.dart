@@ -46,7 +46,8 @@ class HomeView extends StatelessWidget {
                 const Spacer(),
                 Text(
                   AppLocalizations.of(context)!.appTitle,
-                  style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 24, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 40),

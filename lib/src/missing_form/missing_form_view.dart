@@ -1,3 +1,4 @@
+import 'package:computer_status_reporter/src/custom_items/custom_toast.dart';
 import 'package:computer_status_reporter/src/model/classroom.dart';
 import 'package:computer_status_reporter/src/model/computer.dart';
 import 'package:computer_status_reporter/src/model/data_controller.dart';
@@ -29,6 +30,24 @@ class MissingFormViewState extends State<MissingFormView> {
     {'key': 'ethernetCable', 'selected': false, 'icon': Icons.wifi_outlined},
     {'key': 'computer', 'selected': false, 'icon': Icons.devices_other},
   ];
+
+  void _showSuccessToast(BuildContext context) {
+    CustomToast.show(
+      context,
+      AppLocalizations.of(context)!.reportSuccess,
+      Icons.check_circle,
+      Colors.green,
+    );
+  }
+
+  void _showErrorToast(BuildContext context) {
+    CustomToast.show(
+      context,
+      AppLocalizations.of(context)!.reportTransmissionFailed,
+      Icons.error,
+      Colors.red,
+    );
+  }
 
   bool isAtLeastOneItemSelected() {
     return items.any((item) => item['selected']);
@@ -141,26 +160,33 @@ class MissingFormViewState extends State<MissingFormView> {
                       borderRadius: BorderRadius.circular(4.0),
                     ),
                   ),
-                  onPressed: () {
+                  onPressed: () async {
                     if (_formKey.currentState!.validate() &&
                         isAtLeastOneItemSelected()) {
                       String comment = _commentController.text;
                       List<String> selectedItems = getSelectedItems();
 
-                      widget.dataController.addReportByFields(
+                      bool result =
+                          await widget.dataController.addReportByFields(
                         widget.selectedClassroom,
                         widget.selectedComputer,
                         comment,
-                        selectedItems.contains('hdmiCable') ? false : true,
-                        selectedItems.contains('ethernetCable') ? false : true,
-                        selectedItems.contains('keyboard') ? false : true,
-                        selectedItems.contains('mouse') ? false : true,
-                        selectedItems.contains('powerCable') ? false : true,
-                        selectedItems.contains('monitor') ? false : true,
-                        selectedItems.contains('computer') ? false : true,
+                        !selectedItems.contains('hdmiCable'),
+                        !selectedItems.contains('ethernetCable'),
+                        !selectedItems.contains('keyboard'),
+                        !selectedItems.contains('mouse'),
+                        !selectedItems.contains('powerCable'),
+                        !selectedItems.contains('monitor'),
+                        !selectedItems.contains('computer'),
                       );
 
-                      Navigator.pop(context);
+                      if (result) {
+                        _showSuccessToast(context);
+                      } else {
+                        _showErrorToast(context);
+                      }
+
+                      Navigator.pushNamed(context, '/');
                     }
                   },
                   child: Text(localizations.sendButtonLabel),

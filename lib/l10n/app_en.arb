@@ -1,22 +1,43 @@
-{
-  "appTitle": "Computers Status Reporter",
-  "@appTitle": {
-    "description": "The title of the application"
-  },
-  "appSettings": "Settings",
-  "@appSettings": {
-    "description": "The settings label"
-  },
-  "appSettingsDarkMode": "Dark Mode",
-  "@appSettingsDarkMode": {
-    "description": "The dark mode setting"
-  },
-  "appSettingsLanguage": "Language",
-  "@appSettingsLanguage": {
-    "description": "The language setting"
-  },
+{ 
+  "@@locale": "en",
+  "appTitle": "Computer Status Reporter", 
+  "@appTitle": { 
+    "description": "The title of the application" 
+  }, 
   "appCopyRights": "A-C-T @ESIEE-IT - 2024", 
   "@appCopyRights": { 
     "description": "Arthur - Clément - Tristan" 
-  } 
+  },
+  "settings": "Settings", 
+  "@settings": { 
+    "description": "The settings label" 
+  }, 
+  "darkMode": "Dark Mode", 
+  "@darkMode": { 
+    "description": "The dark mode setting" 
+  }, 
+  "language": "Language", 
+  "@language": { 
+    "description": "The language setting" 
+  },
+  "report": "Report",
+  "@report": {
+    "description": "The report button label"
+  },
+  "view": "View",
+  "@view": {
+    "description": "The view button label"
+  },
+  "scanQR": "Scan QR",
+  "@scanQR": {
+    "description": "The scan QR button label"
+  },
+  "reportTransmissionFailed": "Report Transmission Failed",
+  "@reportTransmissionFailed": {
+    "description": "The report transmission failed message"
+  },
+  "reportSuccess": "Report Successfully Sent",
+  "@reportSuccess": {
+    "description": "The report success message"
+  }
 }

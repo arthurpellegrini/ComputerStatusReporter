@@ -17,7 +17,7 @@ class SettingsView extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(AppLocalizations.of(context)!.appSettingsDarkMode,
+        Text(AppLocalizations.of(context)!.darkMode,
             style: textStyle),
         separationSizedBox,
         Switch(
@@ -38,7 +38,7 @@ class SettingsView extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(AppLocalizations.of(context)!.appSettingsLanguage,
+        Text(AppLocalizations.of(context)!.language,
             style: textStyle),
         separationSizedBox,
         DropdownButton<Locale>(
@@ -78,7 +78,7 @@ class SettingsView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title:
-            Text(AppLocalizations.of(context)!.appSettings, style: textStyle),
+            Text(AppLocalizations.of(context)!.settings, style: textStyle),
       ),
       body: SizedBox(
         width: double.infinity,

@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:computer_status_reporter/src/missing_form/select_post_view.dart';
 import 'package:computer_status_reporter/src/model/data_controller.dart';
-import 'package:flutter/material.dart';
 import 'package:computer_status_reporter/src/model/classroom.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -15,8 +15,6 @@ class SelectRoomView extends StatefulWidget {
 
 class _SelectRoomViewState extends State<SelectRoomView> {
   Map<int, List<Classroom>> classroomsByFloor = {};
-
-  // Initial state for expansion panels
   final Map<int, bool> _isExpanded = {};
 
   @override
@@ -31,9 +29,9 @@ class _SelectRoomViewState extends State<SelectRoomView> {
 
     setState(() {
       classroomsByFloor = widget.dataController.getClassrooms();
-      classroomsByFloor.keys.forEach((key) {
+      for (var key in classroomsByFloor.keys) {
         _isExpanded[key] = false;
-      });
+      }
     });
   }
 
@@ -42,8 +40,9 @@ class _SelectRoomViewState extends State<SelectRoomView> {
       context,
       MaterialPageRoute(
         builder: (context) => SelectPostView(
-            dataController: widget.dataController,
-            selectedClassroom: selectedClassroom),
+          dataController: widget.dataController,
+          selectedClassroom: selectedClassroom,
+        ),
       ),
     );
   }
@@ -51,38 +50,84 @@ class _SelectRoomViewState extends State<SelectRoomView> {
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(localizations.selectClassroom),
       ),
+      backgroundColor: const Color(0xFFF7F7F7),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(localizations.selectAClassroom),
             const SizedBox(height: 10),
             Expanded(
-              child: ListView.builder(
+              child: ListView.separated(
                 itemCount: classroomsByFloor.keys.length,
+                separatorBuilder: (context, index) =>
+                    const SizedBox(height: 16.0),
                 itemBuilder: (context, index) {
                   int floor = classroomsByFloor.keys.elementAt(index);
-                  return ExpansionTile(
-                    title: Text('${localizations.floor} $floor'),
-                    onExpansionChanged: (isExpanded) {
-                      setState(() {
-                        _isExpanded[floor] = isExpanded;
-                      });
-                    },
-                    initiallyExpanded: _isExpanded[floor]!,
-                    children: classroomsByFloor[floor]!.map((classroom) {
-                      return ListTile(
+                  return Container(
+                    decoration: BoxDecoration(
+                      color: _isExpanded[floor] == true
+                          ? const Color(0xFFF3F0FF)
+                          : Colors.transparent,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: Theme(
+                      data: ThemeData(
+                        dividerColor: Colors.transparent,
+                        primaryColor: const Color(0xFF7950f2),
+                      ),
+                      child: ExpansionTile(
+                        leading: Icon(
+                          Icons.layers,
+                          color: _isExpanded[floor] == true
+                              ? const Color(0xFF7950f2)
+                              : Colors.black,
+                        ),
                         title: Text(
-                            '${localizations.classroom} ${classroom.classroomNumber}'),
-                        onTap: () {
-                          _navigateToMissingFormView(classroom);
+                          '${localizations.floor} $floor',
+                          style: TextStyle(
+                            color: _isExpanded[floor] == true
+                                ? const Color(0xFF7950f2)
+                                : Colors.black,
+                          ),
+                        ),
+                        onExpansionChanged: (isExpanded) {
+                          setState(() {
+                            _isExpanded[floor] = isExpanded;
+                          });
                         },
-                      );
-                    }).toList(),
+                        initiallyExpanded: _isExpanded[floor]!,
+                        collapsedTextColor: Colors.black,
+                        iconColor: _isExpanded[floor] == true
+                            ? const Color(0xFF7950f2)
+                            : Colors.black,
+                        children: classroomsByFloor[floor]!.map((classroom) {
+                          return ListTile(
+                            title: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                    '${localizations.classroom} ${classroom.classroomNumber}'),
+                                const Icon(
+                                  Icons.arrow_forward,
+                                  color: Colors.black,
+                                  size: 20,
+                                ),
+                              ],
+                            ),
+                            onTap: () {
+                              _navigateToMissingFormView(classroom);
+                            },
+                          );
+                        }).toList(),
+                      ),
+                    ),
                   );
                 },
               ),

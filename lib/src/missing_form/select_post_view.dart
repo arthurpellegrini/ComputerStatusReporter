@@ -9,8 +9,7 @@ class SelectPostView extends StatefulWidget {
   final Classroom selectedClassroom;
   final DataController dataController;
 
-  const SelectPostView({Key? key, required this.dataController, required this.selectedClassroom})
-      : super(key: key);
+  const SelectPostView({super.key, required this.dataController, required this.selectedClassroom});
 
   @override
   _SelectPostViewState createState() => _SelectPostViewState();
@@ -67,18 +66,18 @@ class _SelectPostViewState extends State<SelectPostView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Select Computer'),
+        title: const Text('Select Computer'),
       ),
       body: computers == null || computers!.isEmpty
           ? Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Aucun PC n\'est recensé dans cette salle.'),
-                  SizedBox(height: 20),
+                  const Text('Aucun PC n\'est recensé dans cette salle.'),
+                  const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: _navigateToPrevious,
-                    child: Text('Revenir en arrière'),
+                    child: const Text('Revenir en arrière'),
                   ),
                 ],
               ),
@@ -129,10 +128,10 @@ class _SelectPostViewState extends State<SelectPostView> {
                                         size: 25,
                                         color: computer.id == "-1" ? Colors.transparent : Colors.black,
                                       ),
-                                      SizedBox(height: 8),
+                                      const SizedBox(height: 8),
                                       Text(
                                         computer.computerName,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: Colors.black,
                                         ),
                                       ),
@@ -144,7 +143,7 @@ class _SelectPostViewState extends State<SelectPostView> {
                           );
                         }),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                     ],
                   );
                 },

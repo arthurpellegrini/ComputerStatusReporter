@@ -58,7 +58,7 @@ class MissingFormViewState extends State<MissingFormView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Missing Form Items'),
+        title: const Text('Missing Form Items'),
       ),
       body: Container(
         margin: const EdgeInsets.all(16.0),
@@ -68,11 +68,11 @@ class MissingFormViewState extends State<MissingFormView> {
             children: <Widget>[
               Text(
                 'Classroom : ${widget.selectedClassroom.getClassroomName()}',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               Text(
                 'Computer : ${widget.selectedComputer.computerName}',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 20),
               Wrap(
@@ -88,8 +88,8 @@ class MissingFormViewState extends State<MissingFormView> {
                           borderRadius: BorderRadius.circular(4.0),
                         ),
                         backgroundColor: item['selected']
-                            ? Color.fromARGB(255, 233, 136, 98).withOpacity(0.2)
-                            : Color.fromARGB(202, 186, 241, 84),
+                            ? const Color.fromARGB(255, 233, 136, 98).withOpacity(0.2)
+                            : const Color.fromARGB(202, 186, 241, 84),
                         side: BorderSide(
                           color: item['selected'] ? Colors.blue : Colors.grey,
                         ),

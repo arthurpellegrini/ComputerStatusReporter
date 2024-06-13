@@ -1,19 +1,23 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'sample_feature/sample_item_details_view.dart';
-import 'sample_feature/sample_item_list_view.dart';
-import 'settings/settings_controller.dart';
-import 'settings/settings_view.dart';
+import 'package:computer_status_reporter/src/home_view.dart';
+import 'package:computer_status_reporter/src/missing_form/select_room_view.dart';
+import 'package:computer_status_reporter/src/model/data_controller.dart';
+import 'package:computer_status_reporter/src/settings/settings_controller.dart';
+import 'package:computer_status_reporter/src/settings/settings_view.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({
     super.key,
     required this.settingsController,
+    required this.dataController,
   });
 
   final SettingsController settingsController;
+  final DataController dataController;
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +33,8 @@ class MyApp extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: const [
-            Locale('en', ''), // English, no country code
-            Locale('fr', ''), // French, no country code
+            Locale('en', ''),
+            Locale('fr', ''),
           ],
           locale: settingsController.currentLocale,
           onGenerateTitle: (BuildContext context) =>
@@ -38,21 +42,13 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(),
           darkTheme: ThemeData.dark(),
           themeMode: settingsController.themeMode,
-          onGenerateRoute: (RouteSettings routeSettings) {
-            return MaterialPageRoute<void>(
-              settings: routeSettings,
-              builder: (BuildContext context) {
-                switch (routeSettings.name) {
-                  case SettingsView.routeName:
-                    return SettingsView(controller: settingsController);
-                  case SampleItemDetailsView.routeName:
-                    return const SampleItemDetailsView();
-                  case SampleItemListView.routeName:
-                  default:
-                    return const SampleItemListView();
-                }
-              },
-            );
+          initialRoute: '/',
+          routes: {
+            '/': (context) => const HomeView(),
+            '/settings': (context) => SettingsView(controller: settingsController),
+            '/report': (context) => SelectRoomView(dataController: dataController), // Add your Report page here
+            '/view': (context) => const Placeholder(), // Add your View page here
+            '/scanQR': (context) => const Placeholder(), // Add your ScanQR page here
           },
         );
       },

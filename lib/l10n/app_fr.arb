@@ -32,10 +32,6 @@
   "@scanQR": {
     "description": "L'étiquette du bouton de scanner QR"
   },
-  "reportBug": "Signaler un bug",
-  "@reportBug": {
-    "description": "L'étiquette du bouton de signaler un bug"
-  },
   "reportTransmissionFailed": "Erreur lors de la transmission du rapport",
   "@reportTransmissionFailed": {
     "description": "Le message d'erreur lors de la transmission du rapport"

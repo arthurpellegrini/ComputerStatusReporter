@@ -39,5 +39,81 @@
   "reportSuccess": "Report Successfully Sent",
   "@reportSuccess": {
     "description": "The report success message"
+  },
+  "selectComputer": "Select Computer",
+  "@selectComputer": {
+    "description": "Title of the page to select the computer"
+  },
+  "noComputer": "No computer is listed in this room.",
+  "@noComputer": {
+    "description": "Message indicating that no computer is listed in the room"
+  },
+  "goBack": "Go Back",
+  "@goBack": {
+    "description": "Text of the button to go back"
+  },
+  "selectClassroom": "Select Classroom",
+  "@selectClassroom": {
+    "description": "Title of the page to select the classroom"
+  },
+  "selectAClassroom": "Select a Classroom",
+  "@selectAClassroom": {
+    "description": "Message indicating to select a classroom"
+  },
+  "floor": "Floor",
+  "@floor": {
+    "description": "Label to indicate the floor"
+  },
+  "classroom": "Classroom",
+  "@classroom": {
+    "description": "Label to indicate the classroom"
+  },
+  "missingFormTitle": "Missing Form Items",
+  "@missingFormTitle": {
+    "description": "The title of the page for the missing items form"
+  },
+  "commentLabel": "Comment",
+  "@commentLabel": {
+    "description": "The label for the comment field"
+  },
+  "commentHint": "Please enter a comment when you select the \"Other\" item",
+  "@commentHint": {
+    "description": "Validation message for the comment field when the \"Other\" item is selected"
+  },
+  "selectAtLeastOneItemHint": "Please select at least one item",
+  "@selectAtLeastOneItemHint": {
+    "description": "Validation message when no items are selected"
+  },
+  "sendButtonLabel": "Send",
+  "@sendButtonLabel": {
+    "description": "Button text to send the form"
+  },
+  "hdmiCable": "HDMI Cable",
+  "@hdmiCable": {
+    "description": "The name of the HDMI cable item"
+  },
+  "keyboard": "Keyboard",
+  "@keyboard": {
+    "description": "The name of the keyboard item"
+  },
+  "mouse": "Mouse",
+  "@mouse": {
+    "description": "The name of the mouse item"
+  },
+  "powerCable": "Power Cable",
+  "@powerCable": {
+    "description": "The name of the power cable item"
+  },
+  "monitor": "Monitor",
+  "@monitor": {
+    "description": "The name of the monitor item"
+  },
+  "ethernetCable": "Ethernet Cable",
+  "@ethernetCable": {
+    "description": "The name of the ethernet cable item"
+  },
+  "computer": "Computer",
+  "@computer": {
+    "description": "The name of the computer item"
   }
 }

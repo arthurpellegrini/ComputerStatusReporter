@@ -115,5 +115,33 @@
   "computer": "Ordinateur",
   "@computer": {
     "description": "Le nom de l'élément ordinateur"
+  },
+  "reportsTitle": "Rapports",
+  "@reportsTitle": {
+    "description": "Le titre de la page pour les rapports"
+  },
+  "loadingReports": "Chargement des rapports...",
+  "@loadingReports": {
+    "description": "Message d'attente pendant le chargement des rapports"
+  },
+  "errorLoadingReports": "Erreur",
+  "@errorLoadingReports": {
+    "description": "Message d'erreur lors du chargement des rapports"
+  },
+  "noDescription": "Aucune description...",
+  "@noDescription": {
+    "description": "Texte affiché s'il n'y a pas de description dans le rapport"
+  },
+  "withDescription": "description :",
+   "@withDescription": {
+    "description": "Texte affiché s'il y a une description dans le rapport"
+  },
+  "classroomInfo": "Salle :",
+  "@classroomInfo": {
+    "description": "Information sur la salle dans le rapport"
+  },
+  "computerInfo": "Ordinateur :",
+  "@computerInfo": {
+    "description": "Information sur l'ordinateur dans le rapport"
   }
 }

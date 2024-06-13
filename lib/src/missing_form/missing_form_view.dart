@@ -2,6 +2,7 @@ import 'package:computer_status_reporter/src/model/classroom.dart';
 import 'package:computer_status_reporter/src/model/computer.dart';
 import 'package:computer_status_reporter/src/model/data_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MissingFormView extends StatefulWidget {
   final Classroom selectedClassroom;
@@ -20,13 +21,13 @@ class MissingFormView extends StatefulWidget {
 
 class MissingFormViewState extends State<MissingFormView> {
   List<Map<String, dynamic>> items = [
-    {'name': 'HDMI Cable', 'selected': false, 'icon': Icons.settings_input_hdmi},
-    {'name': 'Keyboard', 'selected': false, 'icon': Icons.keyboard},
-    {'name': 'Mouse', 'selected': false, 'icon': Icons.mouse},
-    {'name': 'Power Cable', 'selected': false, 'icon': Icons.power},
-    {'name': 'Monitor', 'selected': false, 'icon': Icons.desktop_mac_outlined},
-    {'name': 'Ethernet Cable', 'selected': false, 'icon': Icons.router},
-    {'name': 'Computer', 'selected': false, 'icon': Icons.devices_other},
+    {'key': 'hdmiCable', 'selected': false, 'icon': Icons.settings_input_hdmi},
+    {'key': 'keyboard', 'selected': false, 'icon': Icons.keyboard},
+    {'key': 'mouse', 'selected': false, 'icon': Icons.mouse},
+    {'key': 'powerCable', 'selected': false, 'icon': Icons.power},
+    {'key': 'monitor', 'selected': false, 'icon': Icons.desktop_mac_outlined},
+    {'key': 'ethernetCable', 'selected': false, 'icon': Icons.router},
+    {'key': 'computer', 'selected': false, 'icon': Icons.devices_other},
   ];
 
   bool isAtLeastOneItemSelected() {
@@ -34,7 +35,7 @@ class MissingFormViewState extends State<MissingFormView> {
   }
 
   bool otherItemSelected() {
-    return items.any((item) => item['selected'] && item['name'] == 'Other');
+    return items.any((item) => item['selected'] && item['key'] == 'other');
   }
 
   bool noItemSelected() {
@@ -42,7 +43,10 @@ class MissingFormViewState extends State<MissingFormView> {
   }
 
   List<String> getSelectedItems() {
-    return items.where((item) => item['selected']).map((item) => item['name'] as String).toList();
+    return items
+        .where((item) => item['selected'])
+        .map((item) => item['key'] as String)
+        .toList();
   }
 
   final _formKey = GlobalKey<FormState>();
@@ -56,9 +60,11 @@ class MissingFormViewState extends State<MissingFormView> {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Missing Form Items'),
+        title: Text(localizations.missingFormTitle),
       ),
       body: Container(
         margin: const EdgeInsets.all(16.0),
@@ -67,12 +73,14 @@ class MissingFormViewState extends State<MissingFormView> {
           child: Column(
             children: <Widget>[
               Text(
-                'Classroom : ${widget.selectedClassroom.getClassroomName()}',
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                '${localizations.classroom}: ${widget.selectedClassroom.getClassroomName()}',
+                style:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               Text(
-                'Computer : ${widget.selectedComputer.computerName}',
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                '${localizations.computer}: ${widget.selectedComputer.computerName}',
+                style:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 20),
               Wrap(
@@ -82,13 +90,15 @@ class MissingFormViewState extends State<MissingFormView> {
                     width: double.infinity,
                     child: OutlinedButton.icon(
                       icon: Icon(item['icon']),
-                      label: Text(item['name']),
+                      label: Text(AppLocalizations.of(context)!
+                          .getString(item['key'] as String)),
                       style: OutlinedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(4.0),
                         ),
                         backgroundColor: item['selected']
-                            ? const Color.fromARGB(255, 233, 136, 98).withOpacity(0.2)
+                            ? const Color.fromARGB(255, 233, 136, 98)
+                                .withOpacity(0.2)
                             : const Color.fromARGB(202, 186, 241, 84),
                         side: BorderSide(
                           color: item['selected'] ? Colors.blue : Colors.grey,
@@ -107,16 +117,16 @@ class MissingFormViewState extends State<MissingFormView> {
               TextFormField(
                 controller: _commentController,
                 maxLines: 4,
-                decoration: const InputDecoration(
-                  labelText: 'Comment',
-                  border: OutlineInputBorder(),
+                decoration: InputDecoration(
+                  labelText: localizations.commentLabel,
+                  border: const OutlineInputBorder(),
                   alignLabelWithHint: true,
                 ),
                 validator: (value) {
                   if (otherItemSelected() && value!.isEmpty) {
-                    return 'Please enter a comment when you select "Other" item';
+                    return localizations.commentHint;
                   } else if (noItemSelected()) {
-                    return 'Please select at least one item';
+                    return localizations.selectAtLeastOneItemHint;
                   }
                   return null;
                 },
@@ -132,7 +142,8 @@ class MissingFormViewState extends State<MissingFormView> {
                     ),
                   ),
                   onPressed: () {
-                    if (_formKey.currentState!.validate() && isAtLeastOneItemSelected()) {
+                    if (_formKey.currentState!.validate() &&
+                        isAtLeastOneItemSelected()) {
                       String comment = _commentController.text;
                       List<String> selectedItems = getSelectedItems();
 
@@ -140,19 +151,19 @@ class MissingFormViewState extends State<MissingFormView> {
                         widget.selectedClassroom,
                         widget.selectedComputer,
                         comment,
-                        selectedItems.contains('HDMI Cable')  ? false : true,
-                        selectedItems.contains('Ethernet Cable')  ? false : true,
-                        selectedItems.contains('Keyboard')  ? false : true,
-                        selectedItems.contains('Mouse')  ? false : true,
-                        selectedItems.contains('Power Cable')  ? false : true,
-                        selectedItems.contains('Monitor')  ? false : true,
-                        selectedItems.contains('Computer') ? false : true,
+                        selectedItems.contains('hdmiCable') ? false : true,
+                        selectedItems.contains('ethernetCable') ? false : true,
+                        selectedItems.contains('keyboard') ? false : true,
+                        selectedItems.contains('mouse') ? false : true,
+                        selectedItems.contains('powerCable') ? false : true,
+                        selectedItems.contains('monitor') ? false : true,
+                        selectedItems.contains('computer') ? false : true,
                       );
 
                       Navigator.pop(context);
                     }
                   },
-                  child: const Text('Envoyer'),
+                  child: Text(localizations.sendButtonLabel),
                 ),
               ),
             ],
@@ -160,5 +171,28 @@ class MissingFormViewState extends State<MissingFormView> {
         ),
       ),
     );
+  }
+}
+
+extension AppLocalizationsExtension on AppLocalizations {
+  String getString(String key) {
+    switch (key) {
+      case 'hdmiCable':
+        return hdmiCable;
+      case 'keyboard':
+        return keyboard;
+      case 'mouse':
+        return mouse;
+      case 'powerCable':
+        return powerCable;
+      case 'monitor':
+        return monitor;
+      case 'ethernetCable':
+        return ethernetCable;
+      case 'computer':
+        return computer;
+      default:
+        return '';
+    }
   }
 }

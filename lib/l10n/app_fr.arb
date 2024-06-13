@@ -67,5 +67,53 @@
   "classroom": "Salle de classe",
   "@classroom": {
     "description": "Étiquette pour indiquer la salle de classe"
+  },
+  "missingFormTitle": "Formulaire d'éléments manquants",
+  "@missingFormTitle": {
+    "description": "Le titre de la page pour le formulaire des éléments manquants"
+  },
+  "commentLabel": "Commentaire",
+  "@commentLabel": {
+    "description": "L'étiquette pour le champ de commentaire"
+  },
+  "commentHint": "Veuillez entrer un commentaire lorsque vous sélectionnez l'élément \"Autre\"",
+  "@commentHint": {
+    "description": "Message de validation pour le champ de commentaire lorsque l'élément \"Autre\" est sélectionné"
+  },
+  "selectAtLeastOneItemHint": "Veuillez sélectionner au moins un élément",
+  "@selectAtLeastOneItemHint": {
+    "description": "Message de validation lorsque aucun élément n'est sélectionné"
+  },
+  "sendButtonLabel": "Envoyer",
+  "@sendButtonLabel": {
+    "description": "Texte du bouton pour envoyer le formulaire"
+  },
+  "hdmiCable": "Câble HDMI",
+  "@hdmiCable": {
+    "description": "Le nom de l'élément câble HDMI"
+  },
+  "keyboard": "Clavier",
+  "@keyboard": {
+    "description": "Le nom de l'élément clavier"
+  },
+  "mouse": "Souris",
+  "@mouse": {
+    "description": "Le nom de l'élément souris"
+  },
+  "powerCable": "Câble d'alimentation",
+  "@powerCable": {
+    "description": "Le nom de l'élément câble d'alimentation"
+  },
+  "monitor": "Moniteur",
+  "@monitor": {
+    "description": "Le nom de l'élément moniteur"
+  },
+  "ethernetCable": "Câble Ethernet",
+  "@ethernetCable": {
+    "description": "Le nom de l'élément câble Ethernet"
+  },
+  "computer": "Ordinateur",
+  "@computer": {
+    "description": "Le nom de l'élément ordinateur"
   }
 }

@@ -39,5 +39,17 @@
   "reportSuccess": "Report Successfully Sent",
   "@reportSuccess": {
     "description": "The report success message"
+  },
+  "selectComputer": "Select Computer",
+  "@selectComputer": {
+    "description": "Title of the page to select the computer"
+  },
+  "noComputer": "No computer is listed in this room.",
+  "@noComputer": {
+    "description": "Message indicating that no computer is listed in the room"
+  },
+  "goBack": "Go Back",
+  "@goBack": {
+    "description": "Text of the button to go back"
   }
 }

@@ -39,5 +39,17 @@
   "reportSuccess": "Rapport envoyé avec succès",
   "@reportSuccess": {
     "description": "Le message de succès lors de l'envoi du rapport"
+  },
+   "selectComputer": "Sélectionner l'ordinateur",
+  "@selectComputer": {
+    "description": "Titre de la page pour sélectionner l'ordinateur"
+  },
+  "noComputer": "Aucun PC n'est recensé dans cette salle.",
+  "@noComputer": {
+    "description": "Message indiquant qu'aucun ordinateur n'est recensé dans la salle"
+  },
+  "goBack": "Revenir en arrière",
+  "@goBack": {
+    "description": "Texte du bouton pour revenir en arrière"
   }
 }

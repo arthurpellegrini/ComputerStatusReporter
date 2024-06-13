@@ -4,12 +4,16 @@ import 'package:computer_status_reporter/src/model/classroom.dart';
 import 'package:computer_status_reporter/src/model/data_controller.dart';
 import 'package:flutter/material.dart';
 import '../model/computer.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SelectPostView extends StatefulWidget {
   final Classroom selectedClassroom;
   final DataController dataController;
 
-  const SelectPostView({super.key, required this.dataController, required this.selectedClassroom});
+  const SelectPostView(
+      {super.key,
+      required this.dataController,
+      required this.selectedClassroom});
 
   @override
   _SelectPostViewState createState() => _SelectPostViewState();
@@ -26,7 +30,8 @@ class _SelectPostViewState extends State<SelectPostView> {
 
   void createComputersList() {
     setState(() {
-      computers = widget.dataController.getComputersByClassroom(widget.selectedClassroom.id);
+      computers = widget.dataController
+          .getComputersByClassroom(widget.selectedClassroom.id);
     });
   }
 
@@ -44,7 +49,8 @@ class _SelectPostViewState extends State<SelectPostView> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => SelectRoomView(dataController: widget.dataController),
+        builder: (context) =>
+            SelectRoomView(dataController: widget.dataController),
       ),
     );
   }
@@ -66,18 +72,18 @@ class _SelectPostViewState extends State<SelectPostView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Select Computer'),
+        title: Text(AppLocalizations.of(context)!.selectComputer),
       ),
       body: computers == null || computers!.isEmpty
           ? Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('Aucun PC n\'est recensé dans cette salle.'),
+                  Text(AppLocalizations.of(context)!.noComputer),
                   const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: _navigateToPrevious,
-                    child: const Text('Revenir en arrière'),
+                    child: Text(AppLocalizations.of(context)!.goBack),
                   ),
                 ],
               ),
@@ -95,7 +101,8 @@ class _SelectPostViewState extends State<SelectPostView> {
                             return Expanded(child: Container());
                           }
 
-                          final int computerColIndex = colIndex > 2 ? colIndex - 1 : colIndex;
+                          final int computerColIndex =
+                              colIndex > 2 ? colIndex - 1 : colIndex;
 
                           final computer = computers!.firstWhere(
                             (computer) =>
@@ -117,7 +124,9 @@ class _SelectPostViewState extends State<SelectPostView> {
                                       _navigateToMissingFormView(computer);
                                     },
                               child: Card(
-                                color: computer.id == "-1" ? Colors.transparent : Colors.white,
+                                color: computer.id == "-1"
+                                    ? Colors.transparent
+                                    : Colors.white,
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Column(
@@ -126,7 +135,9 @@ class _SelectPostViewState extends State<SelectPostView> {
                                       Icon(
                                         Icons.computer,
                                         size: 25,
-                                        color: computer.id == "-1" ? Colors.transparent : Colors.black,
+                                        color: computer.id == "-1"
+                                            ? Colors.transparent
+                                            : Colors.black,
                                       ),
                                       const SizedBox(height: 8),
                                       Text(

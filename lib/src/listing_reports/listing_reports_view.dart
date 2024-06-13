@@ -1,5 +1,5 @@
+import 'package:computer_status_reporter/src/model/data_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:computer_status_reporter/src/model/dataController.dart';
 import 'package:computer_status_reporter/src/model/report.dart';
 
 class ListingReportsView extends StatelessWidget {

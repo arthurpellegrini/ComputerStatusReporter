@@ -1,4 +1,4 @@
-
+import 'package:computer_status_reporter/src/listing_reports/listing_reports_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -45,10 +45,14 @@ class MyApp extends StatelessWidget {
           initialRoute: '/',
           routes: {
             '/': (context) => const HomeView(),
-            '/settings': (context) => SettingsView(controller: settingsController),
-            '/report': (context) => SelectRoomView(dataController: dataController), // Add your Report page here
-            '/view': (context) => const Placeholder(), // Add your View page here
-            '/scanQR': (context) => const Placeholder(), // Add your ScanQR page here
+            '/settings': (context) =>
+                SettingsView(controller: settingsController),
+            '/report': (context) =>
+                SelectRoomView(dataController: dataController),
+            '/view': (context) =>
+                ListingReportsView(dataController: dataController),
+            '/scanQR': (context) =>
+                const Placeholder(), // Add your ScanQR page here
           },
         );
       },

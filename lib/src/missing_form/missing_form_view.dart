@@ -26,7 +26,7 @@ class MissingFormViewState extends State<MissingFormView> {
     {'key': 'mouse', 'selected': false, 'icon': Icons.mouse},
     {'key': 'powerCable', 'selected': false, 'icon': Icons.power},
     {'key': 'monitor', 'selected': false, 'icon': Icons.desktop_mac_outlined},
-    {'key': 'ethernetCable', 'selected': false, 'icon': Icons.router},
+    {'key': 'ethernetCable', 'selected': false, 'icon': Icons.wifi_outlined},
     {'key': 'computer', 'selected': false, 'icon': Icons.devices_other},
   ];
 

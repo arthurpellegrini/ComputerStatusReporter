@@ -115,5 +115,33 @@
   "computer": "Computer",
   "@computer": {
     "description": "The name of the computer item"
+  },
+"reportsTitle": "Reports",
+  "@reportsTitle": {
+    "description": "The title of the page for reports"
+  },
+  "loadingReports": "Loading reports...",
+  "@loadingReports": {
+    "description": "Message displayed while reports are loading"
+  },
+  "errorLoadingReports": "Error",
+  "@errorLoadingReports": {
+    "description": "Error message when reports fail to load"
+  },
+  "noDescription": "No description...",
+  "@noDescription": {
+    "description": "Text displayed if there is no description in the report"
+  },
+  "withDescription": "Description:",
+  "@withDescription": {
+    "description": "Text displayed if there is a description in the report"
+  },
+  "classroomInfo": "Classroom:",
+  "@classroomInfo": {
+    "description": "Information about the classroom in the report"
+  },
+  "computerInfo": "Computer:",
+  "@computerInfo": {
+    "description": "Information about the computer in the report"
   }
 }

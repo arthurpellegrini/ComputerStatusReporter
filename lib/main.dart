@@ -22,8 +22,22 @@ void main() async {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   DataController dataController = DataController(firestore: firestore);
   
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  runApp(MyApp(dataController: dataController));
+}
 
+class MyApp extends StatelessWidget {
+  final DataController dataController;
 
-  runApp(SelectRoomView(dataController: dataController));
+  const MyApp({Key? key, required this.dataController}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Computer Status Reporter',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: SelectRoomView(dataController: dataController),
+    );
+  }
 }

@@ -51,5 +51,21 @@
   "goBack": "Go Back",
   "@goBack": {
     "description": "Text of the button to go back"
+  },
+  "selectClassroom": "Select Classroom",
+  "@selectClassroom": {
+    "description": "Title of the page to select the classroom"
+  },
+  "selectAClassroom": "Select a Classroom",
+  "@selectAClassroom": {
+    "description": "Message indicating to select a classroom"
+  },
+  "floor": "Floor",
+  "@floor": {
+    "description": "Label to indicate the floor"
+  },
+  "classroom": "Classroom",
+  "@classroom": {
+    "description": "Label to indicate the classroom"
   }
 }

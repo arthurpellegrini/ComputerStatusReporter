@@ -2,15 +2,13 @@ import 'package:computer_status_reporter/src/missing_form/select_post_view.dart'
 import 'package:computer_status_reporter/src/model/data_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:computer_status_reporter/src/model/classroom.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SelectRoomView extends StatefulWidget {
-
-  
   final DataController dataController;
 
   const SelectRoomView({super.key, required this.dataController});
-  
+
   @override
   _SelectRoomViewState createState() => _SelectRoomViewState();
 }
@@ -43,23 +41,25 @@ class _SelectRoomViewState extends State<SelectRoomView> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) =>
-            SelectPostView(dataController: widget.dataController, selectedClassroom: selectedClassroom),
+        builder: (context) => SelectPostView(
+            dataController: widget.dataController,
+            selectedClassroom: selectedClassroom),
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Select Classroom'),
+        title: Text(localizations.selectClassroom),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: <Widget>[
-            const Text('Select a Classroom'),
+            Text(localizations.selectAClassroom),
             const SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
@@ -67,8 +67,8 @@ class _SelectRoomViewState extends State<SelectRoomView> {
                 itemBuilder: (context, index) {
                   int floor = classroomsByFloor.keys.elementAt(index);
                   return ExpansionTile(
-                    title: Text('Floor $floor'),
-                                  onExpansionChanged: (isExpanded) {
+                    title: Text('${localizations.floor} $floor'),
+                    onExpansionChanged: (isExpanded) {
                       setState(() {
                         _isExpanded[floor] = isExpanded;
                       });
@@ -76,7 +76,8 @@ class _SelectRoomViewState extends State<SelectRoomView> {
                     initiallyExpanded: _isExpanded[floor]!,
                     children: classroomsByFloor[floor]!.map((classroom) {
                       return ListTile(
-                        title: Text('Classroom ${classroom.classroomNumber}'),
+                        title: Text(
+                            '${localizations.classroom} ${classroom.classroomNumber}'),
                         onTap: () {
                           _navigateToMissingFormView(classroom);
                         },

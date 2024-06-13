@@ -51,5 +51,21 @@
   "goBack": "Revenir en arrière",
   "@goBack": {
     "description": "Texte du bouton pour revenir en arrière"
+  },
+  "selectClassroom": "Sélectionner la salle de classe",
+  "@selectClassroom": {
+    "description": "Titre de la page pour sélectionner la salle de classe"
+  },
+  "selectAClassroom": "Sélectionnez une salle de classe",
+  "@selectAClassroom": {
+    "description": "Message indiquant de sélectionner une salle de classe"
+  },
+  "floor": "Étage",
+  "@floor": {
+    "description": "Étiquette pour indiquer l'étage"
+  },
+  "classroom": "Salle de classe",
+  "@classroom": {
+    "description": "Étiquette pour indiquer la salle de classe"
   }
 }

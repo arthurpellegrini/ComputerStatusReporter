@@ -12,7 +12,7 @@ class Classroom {
   factory Classroom.fromMap(Map<String, dynamic> data, String documentId) {
     return Classroom(
       id: documentId,
-      classroomNumber: data['classroomNumber'] ?? "0000",
+      classroomNumber: data['classroomNumber'] ?? 0,
       floor: data['floor'] ?? 0,
     );
   }
@@ -22,6 +22,9 @@ class Classroom {
     return 'Classroom(id: $id, classroomNumber: $classroomNumber, floor: $floor)';
   }
 
-
+  String getClassroomName() {
+    String zeroOrNot = (classroomNumber<10) ? "0" : "";
+    return '$floor.$zeroOrNot$classroomNumber';
+  }
 }
 

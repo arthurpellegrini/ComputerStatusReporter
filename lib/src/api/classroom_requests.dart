@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../model/classroom.dart';
+import 'package:computer_status_reporter/src/model/classroom.dart';
 
 class ClassroomRequests {
   FirebaseFirestore firestore;
@@ -8,7 +8,7 @@ class ClassroomRequests {
 
   Future<List<Classroom>> getClassrooms() async {
     try {
-      QuerySnapshot querySnapshot = await firestore.collection('Classroom').get();
+      QuerySnapshot querySnapshot = await firestore.collection('Classroom').orderBy("classroomNumber", descending: false).get();
       List<Classroom> classrooms = querySnapshot.docs.map((doc) {
         return Classroom.fromMap(doc.data() as Map<String, dynamic>, doc.id);
       }).toList();

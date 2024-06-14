@@ -1,9 +1,9 @@
-import 'package:computer_status_reporter/src/missing_form/missing_form_view.dart';
-import 'package:computer_status_reporter/src/missing_form/select_room_view.dart';
-import 'package:computer_status_reporter/src/model/classroom.dart';
-import 'package:computer_status_reporter/src/model/data_controller.dart';
+import 'package:computer_status_reporter/widgets/missing_form/missing_form_view.dart';
+import 'package:computer_status_reporter/widgets/missing_form/select_room_view.dart';
+import 'package:computer_status_reporter/model/classroom.dart';
+import 'package:computer_status_reporter/model/data_controller.dart';
 import 'package:flutter/material.dart';
-import '../model/computer.dart';
+import '../../model/computer.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SelectPostView extends StatefulWidget {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:country_flags/country_flags.dart';
 import 'settings_controller.dart';
-import '../app_languages.dart';
+import '../../app_language.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key, required this.controller});

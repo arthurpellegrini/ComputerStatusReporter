@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:computer_status_reporter/src/model/report.dart';
+import 'package:computer_status_reporter/model/report.dart';
 
 class ReportRequests {
   FirebaseFirestore firestore;

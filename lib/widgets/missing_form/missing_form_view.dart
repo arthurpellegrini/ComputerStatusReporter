@@ -102,35 +102,50 @@ class MissingFormViewState extends State<MissingFormView> {
                     const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 20),
-              Wrap(
-                children: items.map((item) {
-                  return Container(
-                    margin: const EdgeInsets.only(bottom: 10.0),
-                    width: double.infinity,
-                    child: OutlinedButton.icon(
-                      icon: Icon(item['icon']),
-                      label: Text(AppLocalizations.of(context)!
-                          .getString(item['key'] as String)),
-                      style: OutlinedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(4.0),
+              Container(
+                constraints: const BoxConstraints(
+                  maxHeight: 300,
+                ),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: items.map((item) {
+                      return Container(
+                        margin: const EdgeInsets.only(bottom: 10.0),
+                        width: double.infinity,
+                        child: OutlinedButton.icon(
+                          icon: Icon(
+                            item['icon'],
+                            size: 30,
+                          ),
+                          label: Text(
+                            AppLocalizations.of(context)!
+                                .getString(item['key'] as String),
+                            style: const TextStyle(fontSize: 20),
+                          ),
+                          style: OutlinedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 20, horizontal: 20),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(4.0),
+                            ),
+                            backgroundColor: const Color(0xFFF3F0FF),
+                            side: BorderSide(
+                              color: item['selected']
+                                  ? const Color(0xFF7950F2)
+                                  : Colors.transparent,
+                              width: 1.5,
+                            ),
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              item['selected'] = !item['selected'];
+                            });
+                          },
                         ),
-                        backgroundColor: item['selected']
-                            ? const Color.fromARGB(255, 233, 136, 98)
-                                .withOpacity(0.2)
-                            : const Color.fromARGB(202, 186, 241, 84),
-                        side: BorderSide(
-                          color: item['selected'] ? Colors.blue : Colors.grey,
-                        ),
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          item['selected'] = !item['selected'];
-                        });
-                      },
-                    ),
-                  );
-                }).toList(),
+                      );
+                    }).toList(),
+                  ),
+                ),
               ),
               const SizedBox(height: 20),
               TextFormField(

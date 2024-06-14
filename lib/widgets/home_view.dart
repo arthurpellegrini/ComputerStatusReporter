@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'custom_items/custom_button.dart';
+import 'custom/custom_button.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});

@@ -31,6 +31,7 @@ class Computer {
 
   @override
   String toString() {
-    return 'Computer(id: $id, computerName: $computerName, classroomId: $classroomId, positions: $positions)';
+    // return 'Computer(id: $id, computerName: $computerName, classroomId: $classroomId, positions: $positions)';
+    return '$classroomId/$computerName';
   }
 }

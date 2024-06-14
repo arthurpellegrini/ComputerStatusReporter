@@ -32,6 +32,10 @@
   "@scanQR": {
     "description": "L'étiquette du bouton de scanner QR"
   },
+  "exportQR": "Exporter QR",
+  "@exportQR": {
+    "description": "L'étiquette du bouton de exporter QR"
+  },
   "reportTransmissionFailed": "Erreur lors de la transmission du rapport",
   "@reportTransmissionFailed": {
     "description": "Le message d'erreur lors de la transmission du rapport"

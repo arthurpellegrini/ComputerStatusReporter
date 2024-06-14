@@ -2,7 +2,6 @@ import 'package:computer_status_reporter/src/custom_items/custom_download_qr.dar
 import 'package:computer_status_reporter/src/model/data_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'custom_items/custom_toast.dart';
 import 'custom_items/custom_button.dart';
 
 class HomeView extends StatelessWidget {
@@ -10,23 +9,23 @@ class HomeView extends StatelessWidget {
 
   final DataController dataController;
 
-  void _showSuccessToast(BuildContext context) {
-    CustomToast.show(
-      context,
-      AppLocalizations.of(context)!.reportSuccess,
-      Icons.check_circle,
-      Colors.green,
-    );
-  }
+  // void _showSuccessToast(BuildContext context) {
+  //   CustomToast.show(
+  //     context,
+  //     AppLocalizations.of(context)!.reportSuccess,
+  //     Icons.check_circle,
+  //     Colors.green,
+  //   );
+  // }
 
-  void _showErrorToast(BuildContext context) {
-    CustomToast.show(
-      context,
-      AppLocalizations.of(context)!.reportTransmissionFailed,
-      Icons.error,
-      Colors.red,
-    );
-  }
+  // void _showErrorToast(BuildContext context) {
+  //   CustomToast.show(
+  //     context,
+  //     AppLocalizations.of(context)!.reportTransmissionFailed,
+  //     Icons.error,
+  //     Colors.red,
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -88,15 +87,15 @@ class HomeView extends StatelessWidget {
                       const SizedBox(height: 20),
                       CustomDownloadQr(dataController: dataController),
                       const SizedBox(height: 20),
-                      CustomButton(
-                        onPressed: () {
-                          _showSuccessToast(context);
-                          _showErrorToast(context);
-                        },
-                        icon: Icons.bug_report,
-                        label: "TODO: Remove Test Toasts Button",
-                        backgroundColor: Colors.green,
-                      ),
+                    //   CustomButton(
+                    //     onPressed: () {
+                    //       _showSuccessToast(context);
+                    //       _showErrorToast(context);
+                    //     },
+                    //     icon: Icons.bug_report,
+                    //     label: "TODO: Remove Test Toasts Button",
+                    //     backgroundColor: Colors.green,
+                    //   ),
                     ],
                   ),
                 ),

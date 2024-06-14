@@ -33,7 +33,7 @@ class _CustomDownloadQrState extends State<CustomDownloadQr> {
             )
           : const Icon(Icons.download, color: Colors.black),
       label: Text(
-        AppLocalizations.of(context)!.scanQR,
+        AppLocalizations.of(context)!.exportQR,
         style: const TextStyle(color: Colors.black),
       ),
       style: ElevatedButton.styleFrom(

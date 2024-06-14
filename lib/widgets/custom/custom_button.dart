@@ -21,11 +21,13 @@ class CustomButton extends StatelessWidget {
       icon: Icon(icon, color: Colors.black), // Apply contrast color to the icon
       label: Text(
         label,
-        style: const TextStyle(color: Colors.black), // Apply contrast color to the text
+        style: const TextStyle(
+            color: Colors.black), // Apply contrast color to the text
       ),
       style: ElevatedButton.styleFrom(
         backgroundColor: backgroundColor,
-        padding: const EdgeInsets.symmetric(vertical: 20), // Increased vertical padding
+        padding: const EdgeInsets.symmetric(
+            vertical: 20), // Increased vertical padding
         textStyle: const TextStyle(fontSize: 20),
         minimumSize: const Size(400, 70),
         maximumSize: const Size(2000, 70),

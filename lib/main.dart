@@ -9,7 +9,6 @@ import 'package:computer_status_reporter/config/firebase_options.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -18,9 +17,10 @@ void main() async {
   await settingsController.loadSettings();
 
   // Start the firebase link
-  await Firebase.initializeApp( options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   DataController dataController = DataController(firestore: firestore);
 
-  runApp(MyApp(settingsController: settingsController, dataController: dataController));
+  runApp(MyApp(
+      settingsController: settingsController, dataController: dataController));
 }

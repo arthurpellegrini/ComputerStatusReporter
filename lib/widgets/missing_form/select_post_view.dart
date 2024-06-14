@@ -3,7 +3,7 @@ import 'package:computer_status_reporter/widgets/missing_form/select_room_view.d
 import 'package:computer_status_reporter/model/classroom.dart';
 import 'package:computer_status_reporter/model/data_controller.dart';
 import 'package:flutter/material.dart';
-import '../../model/computer.dart';
+import 'package:computer_status_reporter/model/computer.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SelectPostView extends StatefulWidget {

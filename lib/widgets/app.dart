@@ -27,7 +27,8 @@ class MyApp extends StatelessWidget {
           localizationsDelegates: localizationsDelegates,
           supportedLocales: supportedLocales,
           locale: settingsController.currentLocale,
-          onGenerateTitle: (BuildContext context) => AppLocalizations.of(context)!.appTitle,
+          onGenerateTitle: (BuildContext context) =>
+              AppLocalizations.of(context)!.appTitle,
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           themeMode: settingsController.themeMode,

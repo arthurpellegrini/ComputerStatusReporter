@@ -33,7 +33,10 @@ class Report {
     required this.computerName,
   });
 
-  factory Report.fromMap(Map<String, dynamic> data, String documentId,) {
+  factory Report.fromMap(
+    Map<String, dynamic> data,
+    String documentId,
+  ) {
     return Report(
       id: documentId,
       creationDate: data['creationDate'] ?? Timestamp.now(),
@@ -73,7 +76,7 @@ class Report {
   @override
   String toString() {
     return 'Report(id: $id, creationDate: $creationDate, classroomId: $classroomId, computerId: $computerId, '
-           'reportDescription: $reportDescription, hdmiIsOk: $hdmiIsOk, etherIsOk: $etherIsOk, keyboardIsOk: $keyboardIsOk, '
-           'mouseIsOk: $mouseIsOk, powerIsOk: $powerIsOk, screenIsOk: $screenIsOk, computerIsOk: $computerIsOk)';
+        'reportDescription: $reportDescription, hdmiIsOk: $hdmiIsOk, etherIsOk: $etherIsOk, keyboardIsOk: $keyboardIsOk, '
+        'mouseIsOk: $mouseIsOk, powerIsOk: $powerIsOk, screenIsOk: $screenIsOk, computerIsOk: $computerIsOk)';
   }
 }

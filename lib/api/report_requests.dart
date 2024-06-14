@@ -8,7 +8,10 @@ class ReportRequests {
 
   Future<List<Report>> getReports() async {
     try {
-      QuerySnapshot querySnapshot = await firestore.collection('Report').orderBy("creationDate", descending: true).get();
+      QuerySnapshot querySnapshot = await firestore
+          .collection('Report')
+          .orderBy("creationDate", descending: true)
+          .get();
       List<Report> reports = querySnapshot.docs.map((doc) {
         return Report.fromMap(doc.data() as Map<String, dynamic>, doc.id);
       }).toList();
@@ -21,7 +24,6 @@ class ReportRequests {
 
   Future<bool> addReport(Report report) async {
     try {
-
       // Add the report to Firestore and let Firestore generate the document ID
       await firestore.collection('Report').add(report.toMap());
       return true;

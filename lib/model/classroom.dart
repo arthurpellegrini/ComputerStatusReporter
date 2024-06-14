@@ -23,8 +23,7 @@ class Classroom {
   }
 
   String getClassroomName() {
-    String zeroOrNot = (classroomNumber<10) ? "0" : "";
+    String zeroOrNot = (classroomNumber < 10) ? "0" : "";
     return '$floor.$zeroOrNot$classroomNumber';
   }
 }
-

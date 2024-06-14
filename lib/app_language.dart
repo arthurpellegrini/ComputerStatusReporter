@@ -24,4 +24,5 @@ const localizationsDelegates = [
   GlobalCupertinoLocalizations.delegate,
 ];
 
-final supportedLocales = AppLanguages.languages.map((lang) => lang.locale).toList();
+final supportedLocales =
+    AppLanguages.languages.map((lang) => lang.locale).toList();

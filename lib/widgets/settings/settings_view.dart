@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:country_flags/country_flags.dart';
-import 'settings_controller.dart';
-import '../../app_language.dart';
+import 'package:computer_status_reporter/widgets/settings/settings_controller.dart';
+import 'package:computer_status_reporter/app_language.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key, required this.controller});
@@ -17,8 +17,7 @@ class SettingsView extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(AppLocalizations.of(context)!.darkMode,
-            style: textStyle),
+        Text(AppLocalizations.of(context)!.darkMode, style: textStyle),
         separationSizedBox,
         Switch(
           value: controller.themeMode == ThemeMode.dark ||
@@ -38,8 +37,7 @@ class SettingsView extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(AppLocalizations.of(context)!.language,
-            style: textStyle),
+        Text(AppLocalizations.of(context)!.language, style: textStyle),
         separationSizedBox,
         DropdownButton<Locale>(
           key: ValueKey(AppLanguages.languages.length),
@@ -77,8 +75,7 @@ class SettingsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:
-            Text(AppLocalizations.of(context)!.settings, style: textStyle),
+        title: Text(AppLocalizations.of(context)!.settings, style: textStyle),
       ),
       body: SizedBox(
         width: double.infinity,

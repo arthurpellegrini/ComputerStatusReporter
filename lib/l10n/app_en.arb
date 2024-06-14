@@ -1,24 +1,24 @@
-{ 
+{
   "@@locale": "en",
-  "appTitle": "Computer Status Reporter", 
-  "@appTitle": { 
-    "description": "The title of the application" 
-  }, 
-  "appCopyRights": "A-C-T @ESIEE-IT - 2024", 
-  "@appCopyRights": { 
-    "description": "Arthur - Clément - Tristan" 
+  "appTitle": "Computer Status Reporter",
+  "@appTitle": {
+    "description": "The title of the application"
   },
-  "settings": "Settings", 
-  "@settings": { 
-    "description": "The settings label" 
-  }, 
-  "darkMode": "Dark Mode", 
-  "@darkMode": { 
-    "description": "The dark mode setting" 
-  }, 
-  "language": "Language", 
-  "@language": { 
-    "description": "The language setting" 
+  "appCopyRights": "A-C-T @ESIEE-IT - 2024",
+  "@appCopyRights": {
+    "description": "Arthur - Clément - Tristan"
+  },
+  "settings": "Settings",
+  "@settings": {
+    "description": "The settings label"
+  },
+  "darkMode": "Dark Mode",
+  "@darkMode": {
+    "description": "The dark mode setting"
+  },
+  "language": "Language",
+  "@language": {
+    "description": "The language setting"
   },
   "report": "Report",
   "@report": {
@@ -116,7 +116,7 @@
   "@computer": {
     "description": "The name of the computer item"
   },
-"reportsTitle": "Reports",
+  "reportsTitle": "Reports",
   "@reportsTitle": {
     "description": "The title of the page for reports"
   },

@@ -13,7 +13,8 @@ class AppRoutes {
   static const view = '/view';
   static const scanQR = '/scanQR';
 
-  static Map<String, WidgetBuilder> getRoutes(SettingsController settingsController, DataController dataController) {
+  static Map<String, WidgetBuilder> getRoutes(
+      SettingsController settingsController, DataController dataController) {
     return {
       home: (context) => const HomeView(),
       settings: (context) => SettingsView(controller: settingsController),

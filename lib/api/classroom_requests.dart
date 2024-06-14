@@ -8,7 +8,10 @@ class ClassroomRequests {
 
   Future<List<Classroom>> getClassrooms() async {
     try {
-      QuerySnapshot querySnapshot = await firestore.collection('Classroom').orderBy("classroomNumber", descending: false).get();
+      QuerySnapshot querySnapshot = await firestore
+          .collection('Classroom')
+          .orderBy("classroomNumber", descending: false)
+          .get();
       List<Classroom> classrooms = querySnapshot.docs.map((doc) {
         return Classroom.fromMap(doc.data() as Map<String, dynamic>, doc.id);
       }).toList();

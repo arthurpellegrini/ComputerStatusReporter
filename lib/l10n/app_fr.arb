@@ -1,24 +1,24 @@
-{ 
+{
   "@@locale": "fr",
-  "appTitle": "Rapporteur d'état des ordinateurs", 
-  "@appTitle": { 
-    "description": "Le titre de l'application" 
-  }, 
-  "appCopyRights": "A-C-T @ESIEE-IT - 2024", 
-  "@appCopyRights": { 
-    "description": "Arthur - Clément - Tristan" 
+  "appTitle": "Rapporteur d'état des ordinateurs",
+  "@appTitle": {
+    "description": "Le titre de l'application"
   },
-  "settings": "Paramètres", 
-  "@settings": { 
-    "description": "L'étiquette des paramètres" 
-  }, 
-  "darkMode": "Mode sombre", 
-  "@settingsDarkMode": { 
-    "description": "Le paramètre du mode sombre" 
-  }, 
-  "language": "Langue", 
-  "@language": { 
-    "description": "Le paramètre de langue" 
+  "appCopyRights": "A-C-T @ESIEE-IT - 2024",
+  "@appCopyRights": {
+    "description": "Arthur - Clément - Tristan"
+  },
+  "settings": "Paramètres",
+  "@settings": {
+    "description": "L'étiquette des paramètres"
+  },
+  "darkMode": "Mode sombre",
+  "@settingsDarkMode": {
+    "description": "Le paramètre du mode sombre"
+  },
+  "language": "Langue",
+  "@language": {
+    "description": "Le paramètre de langue"
   },
   "report": "Rapport",
   "@report": {
@@ -40,7 +40,7 @@
   "@reportSuccess": {
     "description": "Le message de succès lors de l'envoi du rapport"
   },
-   "selectComputer": "Sélectionner l'ordinateur",
+  "selectComputer": "Sélectionner l'ordinateur",
   "@selectComputer": {
     "description": "Titre de la page pour sélectionner l'ordinateur"
   },
@@ -133,7 +133,7 @@
     "description": "Texte affiché s'il n'y a pas de description dans le rapport"
   },
   "withDescription": "description :",
-   "@withDescription": {
+  "@withDescription": {
     "description": "Texte affiché s'il y a une description dans le rapport"
   },
   "classroomInfo": "Salle :",

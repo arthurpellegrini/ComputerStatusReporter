@@ -1,4 +1,5 @@
 import 'package:computer_status_reporter/model/data_controller.dart';
+import 'package:computer_status_reporter/widgets/custom/custom_download_qr_codes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'custom/custom_button.dart';
@@ -88,6 +89,8 @@ class HomeView extends StatelessWidget {
             label: AppLocalizations.of(context)!.scanQR,
             backgroundColor: const Color(0xFF9F61D1),
           ),
+          const SizedBox(height: 20),
+          CustomDownloadQr(dataController: dataController),
         ],
       ),
     );

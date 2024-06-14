@@ -24,8 +24,8 @@ class _SelectRoomViewState extends State<SelectRoomView> {
   }
 
   void createData() async {
-    await widget.dataController.createClassroomsList();
-    await widget.dataController.createComputersList();
+    // await widget.dataController.createClassroomsList();
+    // await widget.dataController.createComputersList();
 
     setState(() {
       classroomsByFloor = widget.dataController.getClassrooms();

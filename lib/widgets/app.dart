@@ -17,8 +17,14 @@ class MyApp extends StatelessWidget {
   final SettingsController settingsController;
   final DataController dataController;
 
+  void createData() async {
+    await dataController.createClassroomsList();
+    await dataController.createComputersList();
+  }
+
   @override
   Widget build(BuildContext context) {
+    createData();
     return AnimatedBuilder(
       animation: settingsController,
       builder: (context, child) {

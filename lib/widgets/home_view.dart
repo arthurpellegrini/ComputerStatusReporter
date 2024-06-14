@@ -1,10 +1,13 @@
+import 'package:computer_status_reporter/model/data_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'custom/custom_button.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+  const HomeView({super.key, required this.dataController});
 
+  final DataController dataController;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

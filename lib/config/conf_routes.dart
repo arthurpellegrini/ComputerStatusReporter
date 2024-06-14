@@ -16,7 +16,7 @@ class AppRoutes {
   static Map<String, WidgetBuilder> getRoutes(
       SettingsController settingsController, DataController dataController) {
     return {
-      home: (context) => const HomeView(),
+      home: (context) => HomeView(dataController: dataController),
       settings: (context) => SettingsView(controller: settingsController),
       report: (context) => SelectRoomView(dataController: dataController),
       view: (context) => ListingReportsView(dataController: dataController),

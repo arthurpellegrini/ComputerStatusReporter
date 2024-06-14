@@ -1,4 +1,4 @@
-import 'package:computer_status_reporter/widgets/custom_items/custom_toast.dart';
+import 'package:computer_status_reporter/widgets/custom/custom_toast.dart';
 import 'package:computer_status_reporter/model/classroom.dart';
 import 'package:computer_status_reporter/model/computer.dart';
 import 'package:computer_status_reporter/model/data_controller.dart';

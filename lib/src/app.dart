@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -44,11 +43,11 @@ class MyApp extends StatelessWidget {
           themeMode: settingsController.themeMode,
           initialRoute: '/',
           routes: {
-            '/': (context) => const HomeView(),
+            '/': (context) => HomeView(dataController: dataController),
             '/settings': (context) => SettingsView(controller: settingsController),
-            '/report': (context) => SelectRoomView(dataController: dataController), // Add your Report page here
-            '/view': (context) => const Placeholder(), // Add your View page here
-            '/scanQR': (context) => const Placeholder(), // Add your ScanQR page here
+            '/report': (context) => SelectRoomView(dataController: dataController),
+            '/view': (context) => const Placeholder(),
+            '/scanQR': (context) => const Placeholder(),
           },
         );
       },

@@ -23,7 +23,6 @@ class Computer {
 
   
   Map<String, dynamic> toMap() {
-    print(positions);
     return {
       'computerName': computerName,
       'classroomId': classroomId,
@@ -32,8 +31,13 @@ class Computer {
     };
   }
 
+//   @override
+//   String toString() {
+//     return 'Computer(id: $id, computerName: $computerName, classroomId: $classroomId, positions: $positions)';
+//   }
   @override
   String toString() {
-    return 'Computer(id: $id, computerName: $computerName, classroomId: $classroomId, positions: $positions)';
-  }
+  return '$classroomId/$computerName';
+}
+
 }

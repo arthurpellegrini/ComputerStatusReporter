@@ -9,15 +9,13 @@ import 'package:computer_status_reporter/src/model/computer.dart';
 import 'package:computer_status_reporter/src/model/report.dart';
 
 class DataController {
-
   final FirebaseFirestore firestore;
   late final ClassroomRequests classroomRequests;
   late final ComputerRequests computerRequests;
   late final ReportRequests reportRequests;
 
-  Map<int,  List<Classroom>> cacheClassroom = {};
-  Map<String,  List<Computer>> cacheComputer = {};
-
+  Map<int, List<Classroom>> cacheClassroom = {};
+  Map<String, List<Computer>> cacheComputer = {};
 
   DataController({required this.firestore}) {
     classroomRequests = ClassroomRequests(firestore: firestore);
@@ -25,10 +23,9 @@ class DataController {
     reportRequests = ReportRequests(firestore: firestore);
   }
 
-    // Fonction pour retourner une liste d'objets Classroom
+  // Fonction pour retourner une liste d'objets Classroom
   Future<void> createClassroomsList() async {
-
-      List<Classroom> classrooms = await classroomRequests.getClassrooms();
+    List<Classroom> classrooms = await classroomRequests.getClassrooms();
 
     cacheClassroom.clear();
     for (var classroom in classrooms) {
@@ -36,23 +33,20 @@ class DataController {
         cacheClassroom[classroom.floor] = [];
       }
       cacheClassroom[classroom.floor]!.add(classroom);
-    } 
-        
+    }
   }
 
-  Map<int,  List<Classroom>> getClassrooms(){
+  Map<int, List<Classroom>> getClassrooms() {
     return cacheClassroom;
   }
 
-  List<Classroom>? getClassroomsByFloor(int floor)
-  {
+  List<Classroom>? getClassroomsByFloor(int floor) {
     return cacheClassroom[floor];
   }
 
-      // Fonction pour retourner une liste d'objets Computer
+  // Fonction pour retourner une liste d'objets Computer
   Future<void> createComputersList() async {
-
-      List<Computer> computers = await computerRequests.getComputers();
+    List<Computer> computers = await computerRequests.getComputers();
 
     cacheComputer.clear();
     for (var computer in computers) {
@@ -60,44 +54,39 @@ class DataController {
         cacheComputer[computer.classroomId] = [];
       }
       cacheComputer[computer.classroomId]!.add(computer);
-    } 
-        
+    }
   }
 
-  Map<String,  List<Computer>> getComputers(){
+  Map<String, List<Computer>> getComputers() {
     return cacheComputer;
   }
 
   //ici on pourrait mettre en parametre un objet Classroom en entier en fonction de comment on veut le gerer dans la view
   //List<Computer>? getComputersByClassroom(Classroom classroom)
-  List<Computer>? getComputersByClassroom(String classroomId)
-  {
+  List<Computer>? getComputersByClassroom(String classroomId) {
     //return cacheComputer[classroom.id];
     return cacheComputer[classroomId];
   }
 
   //retourne la liste des signalement du plus recent au plus ancient.
-  Future<List<Report>> getReportList() async 
-  {
-      return  reportRequests.getReports();     
+  Future<List<Report>> getReportList() async {
+    return reportRequests.getReports();
   }
 
   //A voir si on veut passer juste les id de classroom et de computer ou si on veut passer l'objet en entier
   Future<bool> addReportByFields(
-    Classroom classroom,
-    Computer computer,
-    String reportDescription,
-    bool hdmiIsOk,
-    bool etherIsOk,
-    bool keyboardIsOk,
-    bool mouseIsOk,
-    bool powerIsOk,
-    bool screenIsOk,
-    bool computerIsOk) async 
-  {
-    return  await reportRequests.addReport(
-      Report(
-        id: "Ajout", 
+      Classroom classroom,
+      Computer computer,
+      String reportDescription,
+      bool hdmiIsOk,
+      bool etherIsOk,
+      bool keyboardIsOk,
+      bool mouseIsOk,
+      bool powerIsOk,
+      bool screenIsOk,
+      bool computerIsOk) async {
+    return await reportRequests.addReport(Report(
+        id: "Ajout",
         creationDate: Timestamp.now(),
         classroomId: classroom.id,
         computerId: computer.id,
@@ -110,11 +99,8 @@ class DataController {
         screenIsOk: screenIsOk,
         computerIsOk: computerIsOk,
         computerName: computer.computerName,
-        classroomName: classroom.getClassroomName()
-      )
-    );    
+        classroomName: classroom.getClassroomName()));
   }
-
 }
 
 /*

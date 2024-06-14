@@ -1,10 +1,14 @@
+import 'package:computer_status_reporter/src/custom_items/custom_download_qr.dart';
+import 'package:computer_status_reporter/src/model/data_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'custom_items/custom_toast.dart';
 import 'custom_items/custom_button.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+  const HomeView({super.key, required this.dataController});
+
+  final DataController dataController;
 
   void _showSuccessToast(BuildContext context) {
     CustomToast.show(
@@ -46,7 +50,8 @@ class HomeView extends StatelessWidget {
                 const Spacer(),
                 Text(
                   AppLocalizations.of(context)!.appTitle,
-                  style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 24, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 40),
@@ -80,6 +85,8 @@ class HomeView extends StatelessWidget {
                         label: AppLocalizations.of(context)!.scanQR,
                         backgroundColor: const Color(0xFF9F61D1),
                       ),
+                      const SizedBox(height: 20),
+                      CustomDownloadQr(dataController: dataController),
                       const SizedBox(height: 20),
                       CustomButton(
                         onPressed: () {

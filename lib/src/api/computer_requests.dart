@@ -18,5 +18,4 @@ class ComputerRequests {
       return [];
     }
   }
-
 }

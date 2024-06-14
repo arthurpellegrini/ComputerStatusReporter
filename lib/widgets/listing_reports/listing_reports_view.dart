@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:computer_status_reporter/src/model/data_controller.dart';
-import 'package:computer_status_reporter/src/model/report.dart';
+import 'package:computer_status_reporter/model/data_controller.dart';
+import 'package:computer_status_reporter/model/report.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Importez la classe de localisation générée
 
 class ListingReportsView extends StatelessWidget {

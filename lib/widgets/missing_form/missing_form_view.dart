@@ -1,7 +1,7 @@
-import 'package:computer_status_reporter/src/custom_items/custom_toast.dart';
-import 'package:computer_status_reporter/src/model/classroom.dart';
-import 'package:computer_status_reporter/src/model/computer.dart';
-import 'package:computer_status_reporter/src/model/data_controller.dart';
+import 'package:computer_status_reporter/widgets/custom_items/custom_toast.dart';
+import 'package:computer_status_reporter/model/classroom.dart';
+import 'package:computer_status_reporter/model/computer.dart';
+import 'package:computer_status_reporter/model/data_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:computer_status_reporter/src/missing_form/select_post_view.dart';
-import 'package:computer_status_reporter/src/model/data_controller.dart';
-import 'package:computer_status_reporter/src/model/classroom.dart';
+import 'package:computer_status_reporter/widgets/missing_form/select_post_view.dart';
+import 'package:computer_status_reporter/model/data_controller.dart';
+import 'package:computer_status_reporter/model/classroom.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SelectRoomView extends StatefulWidget {

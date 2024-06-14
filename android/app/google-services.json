@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:261757654724:android:db9f870ead7c30e7ebdb91",
         "android_client_info": {
-          "package_name": "com.computerStatusReport.app"
+          "package_name": "com.example.computer_status_reporter"
         }
       },
       "oauth_client": [],
